@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+// request yang diminta dari client terhadap server
+message Request {
+    int64 a = 1;
+    int64 b = 2;
+}
+
+// respon yang diberikan server ke klien
+message Response {
+    int64 result = 1;
+}
+
+service AddService {
+    // memproses sebuah penjumlahan dari request a dan b
+    rpc Add(Request) returns (Response);
+
+    // memproses perkalian dari request a dan b
+    rpc Multiply(Request) returns (Response);
+}
